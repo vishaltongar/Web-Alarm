@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock & Alarm</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="card" role="region" aria-label="Clock with alarms">
+        <div class="top">
+            <div>
+                <div class="time">
+                    <div id="hhmm">--:--</div>
+                    <div class="seconds" id="seconds">---</div>
+                    <div class="small" id="ampm">AM</div>
+                </div>
+                <div class="date" id="dateStr">Loading date...</div>
+            </div>
+
+            <div class="right">
+                <div class="controls">
+                    <button class="btn ghost" id="showAlarmsBtn">Show Alarms</button>
+                    <button class="btn" id="addNowBtn">Add Alarm Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Alarm Form -->
+        <div class="form" id="addForm">
+            <input type="time" id="alarmTime" aria-label="Alarm time" />
+            <input type="text" name="" id="alarmLabel" placeholder="Label" />
+            <select id="repeatSelect">
+                <option value="daily">Daily</option>
+                <option value="once">Once</option>
+            </select>
+            <button class="btn" id="addAlarmBtn">Set Alarm</button>
+        </div>
+
+        <!-- Alarm list -->
+        <div class="alarms" id="alarmsList" style="display: none;"></div>
+    </div>
+
+    <!-- Modal for ringing alarm -->
+    <div class="modalBack" id="modalBack" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal" role="document">
+            <h2 id="ringTitle">Alarm</h2>
+            <p id="ringSubtitle">Time reached</p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn" id="dismissBtn">Dismiss</button>
+                <button class="btn ghost" id="snoozeBtn">Snooze 5 min</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
